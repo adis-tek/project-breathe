@@ -6,6 +6,4 @@ const base_url = `https://api.covidactnow.org/v2`
 // State data
 const state = `/state/${state_code}.timeseries.json?apiKey=${auth}`;
 
-const state_URL = () => `${base_url}${state}`;
-
-console.log(state_URL());
+export const state_URL = () => `${base_url}${state}`;
