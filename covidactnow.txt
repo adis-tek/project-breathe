@@ -1,0 +1,61 @@
+States need to be all caps initials like so => CA
+
+https://api.covidactnow.org/v2/states.json?apiKey=a9eb28cd3ef74d2baf520bb9c6607ceb
+---
+https://api.covidactnow.org/v2/states.timeseries.json?apiKey=a9eb28cd3ef74d2baf520bb9c6607ceb
+---
+https://api.covidactnow.org/v2/state/CA.timeseries.json?apiKey=a9eb28cd3ef74d2baf520bb9c6607ceb
+---
+https://api.covidactnow.org/v2/state/{state}.timeseries.csv?apiKey=YOUR_KEY_HERE
+https://api.covidactnow.org/v2/county/{fips}.timeseries.json?apiKey=YOUR_KEY_HERE
+https://api.covidactnow.org/v2/cbsa/{cbsa_code}.timeseries.json?apiKey=YOUR_KEY_HERE
+---
+State initial are case sensitive and must be all uppercase.
+https://api.covidactnow.org/v2/state/CA.json?apiKey=a9eb28cd3ef74d2baf520bb9c6607ceb
+---
+Calculate average graph of 4 things to show when we will reopen.
+---
+
+STATE -
+
+population
+
+Top Row
+
+1. actuals.cases
+2. actuals.deaths
+3. actuals.newCases
+4. actuals.newDeaths
+5. actuals.vaccinesDistributed?
+6. actuals.vaccinationsInitiated?
+7. actuals.vaccinationsCompleted?
+8. actuals.vaccinesAdministered?
+
+Bottom Row
+
+9. metrics.infectionRate 
+10. metrics.icuCapacityRatio
+11. metrics.vaccinationsInitiatedRatio
+12.metrics.vaccinationsCompletedRatio
+
+---
+Timeseries
+
+1. actualsTimeseries.cases
+2. actualsTimeseries.deaths
+3. actualsTimeseries.newCases
+4. actualsTimeseries.newDeaths
+---
+
+npm i axios redux react-redux react-router-dom styled-components framer-motion redux-thunk 
+
+---
+
+    //FETCH STATE HISTORY DATA
+    useEffect(() => {
+      dispatch(loadStateDataHistory());
+    }, [dispatch]);
+    // GET DATA
+    const { stateDataHistory } = useSelector(
+        (state) => state.stateHistory //IN REDUX THE DEVTOOL THE STATE I WANT IS CALLED 'STATES'
+    );
