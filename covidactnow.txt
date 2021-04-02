@@ -59,3 +59,22 @@ npm i axios redux react-redux react-router-dom styled-components framer-motion r
     const { stateDataHistory } = useSelector(
         (state) => state.stateHistory //IN REDUX THE DEVTOOL THE STATE I WANT IS CALLED 'STATES'
     );
+
+---
+
+lastUpdatedDate
+
+---
+direction="row" justify="center" alignItems="center"
+
+---
+Links
+
+https://stackoverflow.com/questions/1990512/add-comma-to-numbers-every-three-digits
+
+https://www.samanthaming.com/tidbits/76-converting-object-to-array/
+
+https://www.youtube.com/watch?v=FD50LPJ6bjE&ab_channel=BenAwad
+
+recharts.org
+

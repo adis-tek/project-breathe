@@ -10,7 +10,8 @@ export const loadStateDataHistory = () => async (dispatch) => {
         type: "FETCH_STATE_DATA_HISTORY",
         payload: {
             // TIMESERIES (HISTORY DATA)
-            timeSeries: stateDataHistory.data.actualsTimeseries
+            historyActuals: stateDataHistory.data.actualsTimeseries,
+            historyMetrics: stateDataHistory.data.metricsTimeseries
         },
 
     });

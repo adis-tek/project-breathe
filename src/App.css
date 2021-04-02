@@ -3,10 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  color: white;
-  background-color: #081131;
+  color: black;
+  /*background-color: #081131; */
 }
-
 /*
   Card color = #111B40
   Subtitle color = #515A7D

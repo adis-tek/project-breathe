@@ -1,11 +1,12 @@
-const initState = { stateDataHistory: [] };
+const initState = { stateDataHistoryActuals: [], stateDataHistoryMetrics: [] };
 
 
 const stateDataHistoryReducer = (state=initState, action) => {
     switch(action.type){
         case "FETCH_STATE_DATA_HISTORY":
             return {...state,
-            stateDataHistory: action.payload.timeSeries
+            stateDataHistoryActuals: action.payload.historyActuals,
+            stateDataHistoryMetrics: action.payload.historyMetrics
         };
         default:
             return {...state};

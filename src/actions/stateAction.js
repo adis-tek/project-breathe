@@ -10,7 +10,16 @@ export const loadStateData = () => async (dispatch) => {
         type: "FETCH_STATE_DATA",
         payload: {
             //specify the exact data so that you can achieve array form
-            totalCases: stateData.data.metricsTimeseries
+            totalCases: stateData.data.actuals.cases,
+            totalDeaths: stateData.data.actuals.deaths,
+            newCases: stateData.data.actuals.newCases,
+            newDeaths: stateData.data.actuals.newDeaths,
+            caseDensity: stateData.data.metrics.caseDensity,
+            infectionRate: stateData.data.metrics.infectionRate,
+            icuCapacityRatio: stateData.data.metrics.icuCapacityRatio,
+            vaccinationsInitiatedRatio: stateData.data.metrics.vaccinationsInitiatedRatio,
+            vaccinationsCompletedRatio: stateData.data.metrics.vaccinationsCompletedRatio,
+            date: stateData.data.lastUpdatedDate
         },
 
     });
