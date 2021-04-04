@@ -14,7 +14,7 @@ function HomeGraphs() {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
-    const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 600, pv: 1400, amt: 1400}, {name: 'Page C', uv: 800, pv: 400, amt: 400}];
+    const [data, setData] = useState();
 
     useEffect(() => {
         dispatch(loadStateDataHistory());
@@ -47,18 +47,28 @@ function HomeGraphs() {
     const icuCapacityRatio = stateDataHistoryMetrics.map((point) => point.icuCapacityRatio);
     const vaccinationsInitiatedRatio = stateDataHistoryMetrics.map((point) => point.vaccinationsInitiatedRatio);
     const vaccinationsCompletedRatio = stateDataHistoryMetrics.map((point) => point.vaccinationsCompletedRatio);
+    const date = stateDataHistoryMetrics.map((point) => point.date);
     //LINE GRAPH
+    const chartData = [];
+    for (let i = 0; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = cases[i];
+        chartData.push(newRow);
+    }
+
     return (
             <StateHistory>
                 <Graphs>
                     <h1>HomeGraphs</h1>
                     {/*{console.log(cases)}*/}
-                    <LineChart width={800} height={800} data={data}>
-                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                    <LineChart width={900} height={500} data={chartData}>
+                    <Line type="monotone" dataKey="data" stroke="#8884d8" />
                     <XAxis dataKey="name" />
-                    <YAxis />
+                    <YAxis dataKey="data" />
                     <Tooltip />
                     </LineChart>
+                    {console.log(chartData)}
                 </Graphs>
             </StateHistory>
     );
