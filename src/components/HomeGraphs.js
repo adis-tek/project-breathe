@@ -7,7 +7,8 @@ import State from './State';
 //STYLING
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip  } from 'recharts';
+import { LineChart, Line, AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip  } from 'recharts';
+import { format, parseISO, subDays } from "date-fns";
 
 function HomeGraphs() {
     //FETCH STATE HISTORY DATA
@@ -30,12 +31,6 @@ function HomeGraphs() {
       const { stateDataHistoryMetrics } = useSelector(
           (state) => state.stateHistory //IN REDUX THE DEVTOOL THE STATE I WANT IS CALLED 'STATES'
       );
-        if (loading) {
-            return <p>Data is loading..</p>;
-        }
-        if (error || !Array.isArray(stateDataHistoryActuals)) {
-            return <p>There was an error loading your data!</p>;
-          }
     //ACTUALS DATA
     const cases = stateDataHistoryActuals.map((point) => point.cases);
     const deaths = stateDataHistoryActuals.map((point) => point.deaths);
@@ -62,17 +57,58 @@ function HomeGraphs() {
                 <Graphs>
                     <h1>HomeGraphs</h1>
                     {/*{console.log(cases)}*/}
-                    <LineChart width={900} height={500} data={chartData}>
-                    <Line type="monotone" dataKey="data" stroke="#8884d8" />
-                    <XAxis dataKey="name" />
-                    <YAxis dataKey="data" />
-                    <Tooltip />
-                    </LineChart>
-                    {console.log(chartData)}
+                    <div style={{marginLeft: 30 + 'px'}}>
+                    <AreaChart width={800} height={500} data={chartData}>
+                        <defs>
+                            <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
+                                <stop offset="50%" stopColor="#2451B7" stopOpacity={0.05} />
+                                <stop offset="70%" stopColor="#2451B7" stopOpacity={0.025} />
+                                <stop offset="80%" stopColor="#2451B7" stopOpacity={0.0} />
+                                <stop offset="90%" stopColor="#2451B7" stopOpacity={0.00} />
+
+                            </linearGradient>
+                        </defs>
+                    <Area type="monotone" dataKey="data" stroke="#2451B7" fill="url(#color" />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tickCount={2} tickFormatter={str => {const date = parseISO(str);
+                    if (date.getDate() %1 === 0) {
+                        return format(date, "MMM, d")
+                        }
+                        return "";
+                    }}
+                     />
+                    <YAxis dataKey="data" axisLine={false} tickLine={false} tickCount={6} tickFormatter={num =>{const value = num;
+                    if (value > 1000000) {
+                        return `${value / 1000000}m`
+                    }
+                    if (value > 1000) {
+                        return `${value / 1000}k`
+                    }
+                    return value;
+                    }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <CartesianGrid opacity={0.1} vertical={false} />
+                    </AreaChart>
+                    {console.log(vaccinationsCompletedRatio)}
+                    </div>
                 </Graphs>
             </StateHistory>
     );
 };
+
+function CustomTooltip({active, payload, label}) {
+    if (active) {
+        return (
+        <div className="tooltip" >
+            <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4>
+            <p>
+                {payload[0].value} Cases
+            </p>
+        </div>
+        )
+    }
+    return null;
+}
 
 export default HomeGraphs;
 

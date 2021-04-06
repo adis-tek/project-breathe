@@ -14,7 +14,6 @@ function Home() {
     return (
     <StateList>
         <DataCards />
-        <HomeGraphs />
     </StateList>
     );
 };
