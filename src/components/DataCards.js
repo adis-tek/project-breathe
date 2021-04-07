@@ -77,6 +77,9 @@ function DataCards() {
     const vaccinationsCompletedRatio = stateDataHistoryMetrics.map((point) => point.vaccinationsCompletedRatio);
     const date = stateDataHistoryMetrics.map((point) => point.date);
     //AREA GRAPH
+
+
+
     const casesData = [];
     for (let i = 0; i < date.length; i++) {
         const newRow = {};
@@ -84,6 +87,7 @@ function DataCards() {
         newRow.data = cases[i];
         casesData.push(newRow);
     }
+
     const deathsData = [];
     for (let i = 0; i < date.length; i++) {
         const newRow = {};
@@ -91,6 +95,70 @@ function DataCards() {
         newRow.data = deaths[i];
         deathsData.push(newRow);
     }
+
+    const newCasesData = [];
+    for (let i = 0; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = newCases[i];
+        newCasesData.push(newRow);
+    }
+
+    const newDeathsData = [];
+    for (let i = 0; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = newDeaths[i];
+        newDeathsData.push(newRow);
+    }
+
+    const caseDensityData = [];
+    for (let i = 0; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = caseDensity[i];
+        caseDensityData.push(newRow);
+    }
+
+    const infectionRateData = [];
+    for (let i = 0; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = infectionRate[i];
+        infectionRateData.push(newRow);
+    }
+
+    const icuCapacityRatioData = [];
+    for (let i = 220; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = icuCapacityRatio[i];
+        icuCapacityRatioData.push(newRow);
+    }
+
+    const vaccinationsInitiatedRatioData = [];
+    for (let i = 388; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = vaccinationsInitiatedRatio[i];
+        vaccinationsInitiatedRatioData.push(newRow);
+    }
+
+    const vaccinationsCompletedRatioData = [];
+    for (let i = 388; i < date.length; i++) {
+        const newRow = {};
+        newRow.name = date[i];
+        newRow.data = vaccinationsCompletedRatio[i];
+        vaccinationsCompletedRatioData.push(newRow);
+    }
+
+    function getNum(val) {
+        if (isNaN(val)) {
+            return 0;
+        }
+        return val;
+    }
+
     
     useEffect(() => {
       dispatch(loadStateData());
@@ -151,7 +219,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -200,7 +268,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -221,7 +289,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={newCasesData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -249,7 +317,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -270,7 +338,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={newDeathsData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -298,7 +366,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -319,7 +387,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={caseDensityData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -347,7 +415,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -360,7 +428,7 @@ function DataCards() {
                             Infection Rate
                         </Typography>
                         <Typography variant="h3" align="left" color="textPrimary" gutterBottom>
-                            {Math.round(((stateData.infectionRate) * 100))}%
+                            {getNum(stateData.infectionRate).toFixed(2)}
                         </Typography>
                         <Typography variant="h4" align="left" color="textSecondary" gutterBottom>
                             {stateData.date}
@@ -368,7 +436,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={infectionRateData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -396,7 +464,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -417,7 +485,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={icuCapacityRatioData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -437,15 +505,12 @@ function DataCards() {
                         }}
                         />
                         <YAxis dataKey="data" axisLine={false} tickLine={false} tickCount={6} tickFormatter={num =>{const value = num;
-                        if (value > 1000000) {
-                            return `${value / 1000000}m`
-                        }
-                        if (value > 1000) {
-                            return `${value / 1000}k`
+                        if (value > 0) {
+                            return `${value * 100}%`
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -466,7 +531,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={vaccinationsInitiatedRatioData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -494,7 +559,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -515,7 +580,7 @@ function DataCards() {
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
                             Total cases reported in the state since the inception of Covid-19 in the United States.
                         </Typography>
-                        <AreaChart margin={0} width={350} height={350} data={casesData}>
+                        <AreaChart margin={0} width={350} height={350} data={vaccinationsCompletedRatioData}>
                         <defs>
                             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#2451B7" stopOpacity={0.1} />
@@ -543,7 +608,7 @@ function DataCards() {
                         }
                         return value;
                         }} />
-                        <Tooltip content={<CustomTooltip />} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <CartesianGrid opacity={0.1} vertical={false} />
                         </AreaChart>
                     </CardContent>
@@ -553,6 +618,7 @@ function DataCards() {
     );
 };
 
+/*
 function CustomTooltip({active, payload, label}) {
     if (active) {
         return (
@@ -560,13 +626,14 @@ function CustomTooltip({active, payload, label}) {
             <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4>
             <p>
                 {payload[0].value} Cases
-                {/*{console.log(payload[0].value)} */}
+                {console.log(payload[0].value)}
             </p>
         </div>
         )
     }
     return <p>LOADING</p>;
 }
+*/
 
 export default DataCards;
 
