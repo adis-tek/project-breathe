@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "date-fns": "^2.19.0",
+    "formik": "^2.2.6",
     "framer-motion": "^4.0.3",
     "install": "^0.13.0",
     "npm": "^7.7.6",
