@@ -5,11 +5,13 @@ import Home from './pages/Home';
 import TopBar from './components/TopBar';
 import { set } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
+import Announcement from './components/Announcement';
 
 function App() {
   return (
   <>
       <TopBar />
+      <Announcement />
       <Home />
   </>
   );

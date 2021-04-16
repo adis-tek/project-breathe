@@ -12,18 +12,8 @@ import HomeGraphs from '../components/HomeGraphs';
 
 function Home() {
     return (
-    <StateList>
         <DataCards />
-    </StateList>
     );
 };
 
 export default Home;
-
-const StateList = styled(motion.div)`
-
-`;
-
-const StateData = styled(motion.div)`
-
-`;

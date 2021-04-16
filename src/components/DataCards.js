@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     cardContent2: {
         width: '100%',
         height: '100%',
-        marginLeft: '25px',
+        marginLeft: '5px',
         marginRight: '25px',
         backgroundColor: 'white',
     },
@@ -366,7 +366,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            New cases reported today in the state.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
@@ -419,7 +419,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            New deaths reported today in the state.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
@@ -472,7 +472,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            Number of infected people per 100,000 people.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
@@ -525,7 +525,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            The rate of spread by each individual.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
@@ -578,7 +578,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            Total ICU capacity as of today.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
@@ -628,7 +628,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            Total number of people who have recieved the first dose of the vaccine.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
@@ -678,7 +678,7 @@ function DataCards() {
                             {stateData.date}
                         </Typography>
                         <Typography variant="h5" align="left" color="textSecondary" paragraph>
-                            Total cases reported in the state since the inception of Covid-19 in the United States.
+                            Total number of people who are now fully vaccinated.
                         </Typography>
                         </CardContent>
                         <ResponsiveContainer width={'100%'} height={250}>
