@@ -26,12 +26,15 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         width: '100%',
         height: '100%',
-        padding: '75px'
+        padding: '0px 0px 5px 30px'
     },
     grid: {
         width: '100%',
         height: '100%',
         padding: theme.spacing(2),
+        [theme.breakpoints.between('0px', '750px')]: {
+            padding: theme.spacing(1),
+      },
     },
     card: {
         width: '100%',
@@ -211,20 +214,6 @@ function DataCards() {
         return val;
     }
 */}
-
-    function zeroSwitch(val) {
-        if (val) {
-            console.log("it works");
-            console.log(val);
-        }
-        else {
-            return val;
-        }
-    }
-
-    //        if (newRow.data === 0) {
-    //    newRow.data = icuCapacityRatio[i-1];
-    //};
 
     
     useEffect(() => {

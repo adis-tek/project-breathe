@@ -39,11 +39,11 @@ function StateCodeStateCode() {
     console.log('"'+b+'"');
     var codeInitials = b;
     setState(codeInitials);
-    dispatch({
-        type: "GET_CODE_INITIALS",
-        payload: codeInitials
-      });
-      window.location.reload();
+    //dispatch({
+    //    type: "GET_CODE_INITIALS",
+    //    payload: codeInitials
+    // });
+    window.location.reload();
 }
 
 console.log(`${JSON.parse(localStorage.getItem('name'))}`);
@@ -52,8 +52,8 @@ console.log(codeInitialsTest);
         <>
         <Formik>
             <StateSelector>
-            <h1>State: {state}</h1>
-        <Select style={{minWidth: 200}} variant="outlined" onChange={onStateChange}>
+        <Select style={{minWidth: 200}} value={state} displayEmpty variant="outlined" onChange={onStateChange}>
+            <MenuItem value="">Pick a state</MenuItem>
             <MenuItem value="AL">Alabama</MenuItem>
             <MenuItem value="AK">Alaska</MenuItem>
             <MenuItem value="AZ">Arizona</MenuItem>
@@ -125,7 +125,11 @@ const StateSelector = styled.div`
     width: 100%;
     height: 20%;
     margin-top: 45px;
-    margin-bottom: -20px;
+    margin-bottom: 45px;
+    @media (max-width: 600px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    }
 `;
 
 export default connect (mapStateToProps) (StateCodeStateCode);
